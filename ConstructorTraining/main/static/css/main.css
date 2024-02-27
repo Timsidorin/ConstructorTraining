@@ -4,6 +4,10 @@
 	padding: 0;
 }
 
+a {
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+   }
+
 body{
     margin: 0;
     padding: 0;
@@ -12,9 +16,22 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background: url("/static/images/background.jpg") center center no-repeat  fixed;
+   background: ;
+
     background-size: cover;
 }
+
+
+.login-form{
+    display:flex;
+}
+
+.contain{
+display:flex;
+}
+
+
+
 
 .parent{
   display:flex;
@@ -76,7 +93,101 @@ body{
 }
 
 
+.header{
+    width:100%;
+    height:50px;
+    border-bottom-right-radius :15px;
+    border-bottom-left-radius :15px;
+    background-color: rgb(0 0 0 / 77%);
+    text-align: right;
+    padding: 5px 30px 0px 30px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    display:block;
+}
+
+.login{
+    color:white;
+    font-family: Tahoma;
+    font-size: 25px;
+
+}
+
+.reg{
+    color:white;
+    font-family: Tahoma;
+    font-size: 25px;
+
+}
 
 
+.maindiv{
+  display:flex;
+  margin: auto;
+  margin-block-start: 50vh;
+  transform: translateY(-50%);
+  align-items:center;
+  justify-content:center;
+
+}
 
 
+.photo{
+
+
+}
+
+.title{
+text-align:center;
+    margin-left:40px;
+
+}
+
+.text-title{
+      font-family: Arial;
+    font-size: 60px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+     font-weight: 600;
+    text-decoration: none;
+
+
+}
+
+.password_reset{
+ color:rgba(0, 0, 0, 0.5);
+     font-family: Arial;
+    font-size: 15px;
+}
+
+.btn-success{
+     align-items:center;
+
+}
+
+
+.form-control{
+
+  margin-inline: auto;
+  margin-block-start: 50vh;
+  transform: translateY(-50%);
+    align-items:center;
+    text-align:center;
+
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    color:rgba(0, 0, 0, 0.5);
+     font-family: Arial;
+    font-size: 18px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+     font-weight: 600;
+    text-decoration: none;
+
+}
+
+
+.logout{
+        color:white;
+    font-family: Tahoma;
+    font-size: 22px;
+}

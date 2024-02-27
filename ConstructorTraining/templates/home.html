@@ -1,13 +1,46 @@
 {% extends 'base.html' %}
 
-{% block content %}
-    <h1>Home page</h1>
-    <hr>
 
+{% block content %}
+    {% load static %}
     {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
+
+ <div class="header">
+            <a class="logout" href="{% url 'logout' %}">Выйти</a>
+            <div class="maindiv">
+
+
+ <div class="parent">
+
+             <div class="create-training">
+                 <div class="text">
+                     Создать тренинг
+                 </div>
+                 <img class="pencil" src="{% static '/images/fi-br-pencil.svg'%}"  alt="" width="100px" height="100px">
+             </div>
+        <div class="my-trainings">
+             <div class="text">
+                     Мои тренинги
+                 </div>
+            <img class="folder" src="{% static '/images/folder.svg'%}"  alt="" width="100px" height="100px">
+        </div>
+    </div>
     {% else %}
-        <a href="{% url 'login' %}">Login</a> |
-        <a href="{% url 'register' %}">Register</a>
+        <div class="header">
+              <a class="login" href="{% url 'login' %}">Вход |</a>
+            <a class="reg" href="{% url 'register' %}">Регистрация</a>
+            <div class="maindiv">
+            <img class="photo" src="{% static '/images/fi-rr-apps.svg'%}"  alt="" width="300px" height="300px">
+                <div class="title">
+                <div class="text-title"> Конструктор</div>
+                <div class="text-title"> Тренингов</div>
+                </div>
+    </div>
+        </div>
+
+
+
+
+
     {% endif %}
 {% endblock %}

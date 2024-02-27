@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Login</h1>
-    <hr>
 
+    <div class="login-form">
     {% if form.errors %}
         <p>{{ form.errors.error }}</p>
     {% endif %}
 
-    <form action="{% url 'login' %}" method="post">
-    {{ form }}
+    <form class="form-control" id="myForm" action="{% url 'login' %}" method="post">
+    {{ form.as_p }}
     {% csrf_token %}
-    <button type="submit" class="btn btn-success">submit</button>
+    <button  type="submit" class="btn btn-success">Войти</button>
+          <a class="password_reset" href="{% url 'password_reset' %}">Забыли пароль?</a>
     </form>
 
-    <a href="{% url 'password_reset' %}">Forgot password?</a>
+
+
+     </div>
+
+
 {% endblock %}
