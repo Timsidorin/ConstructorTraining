@@ -58,7 +58,7 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-button[type="submit"] {
+button[type="deadline"] {
     padding: 10px 20px;
     background-color: #28a745;
     color: #fff;
@@ -71,7 +71,7 @@ button[type="submit"] {
     border-radius: 15px;
 }
 
-button[type="submit"]:hover {
+button[type="deadline"]:hover {
     background-color: #218838;
 }
 
