@@ -140,6 +140,7 @@ display:flex;
 
 }
 
+
 @keyframes rotateAnimation {
     /* Устанавливаем стили для анимации */
     from {
@@ -151,11 +152,28 @@ display:flex;
 }
 
 
+
+
+
+
+
 .title{
 text-align:center;
+    position: relative;
     margin-left:40px;
-
+    right: -100%;
+    animation: slideInRight 1s forwards;
 }
+
+@keyframes slideInRight {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 0;
+    }
+}
+
 
 .text-title{
       font-family: Arial;
