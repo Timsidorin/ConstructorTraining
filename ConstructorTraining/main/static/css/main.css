@@ -152,11 +152,6 @@ display:flex;
 }
 
 
-
-
-
-
-
 .title{
 text-align:center;
     position: relative;
@@ -220,11 +215,24 @@ text-align:center;
 
 
 .logout{
+
         color:white;
     font-family: Tahoma;
     font-size: 22px;
     cursor:pointer;
 }
+
+.user{
+       color:white;
+    font-family: Tahoma;
+    font-size: 22px;
+    cursor:pointer;
+    margin-right:20px;
+    text-decoration:none;
+
+}
+
+
 
 .click{
     position:absolute;

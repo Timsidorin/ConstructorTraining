@@ -6,7 +6,9 @@
     {% if user.is_authenticated %}
 
  <div class="header">
+            <a class="user" href="#">{{user.username}}</a>
             <a class="logout" href="{% url 'logout' %}">Выйти</a>
+
             <div class="maindiv">
 
 
@@ -18,16 +20,6 @@
                  </div>
                  <img class="pencil" src="{% static '/images/fi-br-pencil.svg'%}"  alt="" width="100px" height="100px">
              </div>
-
-
-
-
-
-
-
-
-
-
 
 
         <div class="my-trainings">
