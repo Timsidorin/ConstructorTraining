@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponseRedirect, HttpResponseNotFound
 from trainings.models import Training
-
+from django.contrib.auth.models import User
 def my_trainings(request):
     training = Training.objects.all()
     return render(request, "index.html", {"training": training})
@@ -16,6 +16,7 @@ def create(request):
         training = Training()
         training.title = request.POST.get("title")
         training.describe = request.POST.get("describe")
+        training.author = request.user.id
         training.save()
     return HttpResponseRedirect("/")
 
@@ -28,6 +29,7 @@ def edit(request, id):
         if request.method == "POST":
             training.title = request.POST.get("title")
             training.describe = request.POST.get("describe")
+            training.author = request.POST.get("user")
             training.save()
             return HttpResponseRedirect("/")
         else:
