@@ -17,6 +17,7 @@ def create(request):
         training.title = request.POST.get("title")
         training.describe = request.POST.get("describe")
         training.author = request.user.id
+        training.logo = request.FILES.get("logo")
         training.save()
     return HttpResponseRedirect("/")
 

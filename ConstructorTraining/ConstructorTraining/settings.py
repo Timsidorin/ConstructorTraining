@@ -1,7 +1,7 @@
 
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,6 +14,10 @@ SECRET_KEY = 'django-insecure-xu36gk$o*xm$@rcs3m&@edvm9!@s*n$$&446yxj+k5fa+zpdij
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+MEDIA_ROOT = 'C:/Users/ulibk/PycharmProjects/ConstructorTraining/ConstructorTraining/trainings/logotypes'
+
+MEDIA_URL = '/logotypes/'
 
 ALLOWED_HOSTS = []
 

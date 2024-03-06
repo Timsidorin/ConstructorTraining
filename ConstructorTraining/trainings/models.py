@@ -8,4 +8,4 @@ class Training(models.Model):
     author = models.CharField(max_length=20)
     describe = models.CharField(max_length=200)
     #date_time = models.DateTimeField()
-    #logo = models.ImageField(upload_to='logotypes')
+    logo = models.ImageField(upload_to='logotypes/')
