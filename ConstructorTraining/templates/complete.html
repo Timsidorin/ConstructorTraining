@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    {% if user.is_authenticated %}
+        <h1>Ваше название ИЗМЕНЕНО(ДОБАВИТЬ ТАКЖЕ СМЕНУ КАРТИНКИ И ОПИСАНИЯ, ПОТОМ ПОМЕНЯТЬ ЗАГОЛОВОК)</h1>
+        <form action="/mytrainings/" class="button_home">
+            <button type="submit">Вернуться обратно</button>
+        </form>
+
+    {% endif %}
+{% endblock %}

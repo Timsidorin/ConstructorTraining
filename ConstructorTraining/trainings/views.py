@@ -1,5 +1,8 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
+from .forms import TrainingEditForm
+from django.contrib import messages
+from django.urls import reverse
 # Create your views here.
 
 from django.http import HttpResponseRedirect, HttpResponseNotFound
@@ -54,7 +57,30 @@ def delete(request, id):
 
 
 def workspace(request, id):
-    author = request.user.id
-    trainings = Training.objects.filter(author=author)
-    return render(request, "workspace.html", {"trainings": trainings})
+    try:
+        training = get_object_or_404(Training, id=id)
+        return render(request, "workspace.html", {"training": training})
+    except Training.DoesNotExist:
+        return HttpResponseNotFound("<h2>Training not found</h2>")
 
+
+def traningedit(request, id):
+    training = get_object_or_404(Training, id=id)
+    if request.method == 'POST':
+        form = TrainingEditForm(request.POST, instance=training)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Training edited successfully.')
+            # Перенаправление на страницу complete с id тренировки
+            return redirect(reverse('complete', kwargs={'id': id}))
+    else:
+        form = TrainingEditForm(instance=training)  # Preload existing title
+    return render(request, "traningedit.html", {"form": form, "training": training})
+
+
+def complete(request, id):
+    try:
+        training = get_object_or_404(Training, id=id)
+        return render(request, "complete.html", {"training": training})
+    except Training.DoesNotExist:
+        return HttpResponseNotFound("<h2>Training not found</h2>")

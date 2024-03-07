@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Рабочая область</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+    {% load static %}
+    {% if user.is_authenticated %}
+        <h1>{{training.title}}</h1>
+    {% endif %}
+{% endblock %}

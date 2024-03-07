@@ -476,3 +476,15 @@ width:100%;
 border-rop-right-radius:20px;
 border-rop-left-radius:20px;
 }
+
+
+.form-group{
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.button_back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
