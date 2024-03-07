@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-xu36gk$o*xm$@rcs3m&@edvm9!@s*n$$&446yxj+k5fa+zpdij
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-MEDIA_ROOT = './trainings/'
+MEDIA_ROOT = './main/static/'
 
 MEDIA_URL = '/logotypes/'
 

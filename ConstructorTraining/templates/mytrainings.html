@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+    {% if user.is_authenticated %}
+
+ <div class="header">
+            <a class="user" href="#">{{user.username}}</a>
+            <a class="logout" href="{% url 'logout' %}">Выйти</a>
+
+            <div class="card-container">
+
+            {% if trainings %}
+             {% for training in trainings %}
+
+              <div class="card" style="width: 20rem;">
+               <img src="{% static training.logo %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{training.title}}</h5>
+                <p class="card-text">📃 Описание: <br> <br/> {{training.describe}}</p>
+                <a href="#" class="btn">Редактировать</a>
+                  <a href="#"  class="btn_del">Удалить</a>
+              </div>
+            </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-trainings">Вы еще не создали ни одного тренинга!</p>
+                {% endif %}
+
+
+
+            </div>
+
+ </div>
+
+
+
+   {% endif %}
+{% endblock %}
