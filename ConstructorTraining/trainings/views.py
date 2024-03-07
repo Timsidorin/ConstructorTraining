@@ -7,7 +7,6 @@ from trainings.models import Training
 from django.contrib.auth.models import User
 def mytrainings(request):
     author = request.user.id
-    print(author)
     trainings = Training.objects.filter(author=author)
 
     return render(request, "mytrainings.html", {"trainings": trainings})
@@ -46,6 +45,7 @@ def edit(request, id):
 # удаление данных из бд
 def delete(request, id):
     try:
+
         training = Training.objects.get(id=id)
         training.delete()
         return HttpResponseRedirect("/")
