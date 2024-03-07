@@ -51,3 +51,10 @@ def delete(request, id):
         return HttpResponseRedirect("/")
     except Training.DoesNotExist:
         return HttpResponseNotFound("<h2>Training not found</h2>")
+
+
+def workspace(request, id):
+    author = request.user.id
+    trainings = Training.objects.filter(author=author)
+    return render(request, "workspace.html", {"trainings": trainings})
+
