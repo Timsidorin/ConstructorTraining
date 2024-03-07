@@ -5,11 +5,15 @@
     {% if user.is_authenticated %}
         <form method="post">
             {% csrf_token %}
-            <h1>Новое название</h1>
+            <div class="edit">
+                <h1>Новое название</h1>
             <div class="form-group">
                 {{ form.title }}
             </div>
             <button type="submit" class="btn">Save</button>
+
+            </div>
+
         </form>
     {% endif %}
 {% endblock %}

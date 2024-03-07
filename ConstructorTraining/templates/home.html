@@ -45,11 +45,13 @@
                      <input type="text" class="training-description" placeholder="Описание тренинга" name="describe">
 
                     <div class="form-check-label">Загрузите логотип вашего тренинга</div>
-
-                    <input type="file" name="logo"/>
-                    <figure>
-                      <img id="image" />
-                    </figure>
+                    <div class="input__wrapper">
+                   <input  type="file" id="file" class="input input__file" name="logo" >
+                   <label for="file" class="input__file-button">
+                      <span class="input__file-icon-wrapper"><img class="input__file-icon" src="{% static '/images/upload.svg'%}" alt="Выбрать файл" width="25"></span>
+                      <span class="input__file-button-text">Выберите файл</span>
+                   </label>
+                </div>
 
 
                         <button type="submit" class="btn btn-primary">Создать</button>
