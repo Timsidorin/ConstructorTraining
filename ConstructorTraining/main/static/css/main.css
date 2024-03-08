@@ -730,19 +730,26 @@ border-rop-left-radius:20px;
 
 
 
-.tools{
-    padding-bottom:20px;
-    height:100%;
-
-}
-
 
 .new_object {
     width: 100px; /* Adjust size as needed */
     height: 50px; /* Adjust size as needed */
-    background-color: #f0f0f0; /* Adjust color as needed */
+    background-color: transparent; /* Adjust color as needed */
     position: absolute;
     top: 130px; /* Adjust position as needed */
     left: 260px; /* Adjust position as needed */
-    border-radius: 10px; /* Optional, for rounded corners */
+    border: 1px solid red;
+    z-index: 1000;
+
+}
+
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+    z-index: 1000;
 }

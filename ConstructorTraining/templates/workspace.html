@@ -14,13 +14,98 @@
 
     </div>
 
-    <div class="tools">
+
+
     <div class="right_buttom">
         <img class="pict_bttom" src="{% static '/images/SVGRepo_iconCarrier.svg'%}" alt="" width="80px" height="70px">
         <!-- New Object to Show on Click -->
-        <div class="new_object" style="display: none;">New Object</div>
+        <div class="new_object" style="display: none;">Выделите область
+        <div class="resize-handle"></div>
+        </div>
     </div>
-    
+
+
+            <script>
+document.addEventListener('DOMContentLoaded', function () {
+    var rightButton = document.querySelector('.right_buttom');
+    if (rightButton) {
+        rightButton.addEventListener('click', function () {
+            var newObj = document.querySelector('.new_object');
+            newObj.style.display = 'block'; // Показываем объект без условий
+            enableDrag(newObj);
+        });
+    }
+});
+
+function enableDrag(element) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    element.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var resizeHandle = document.querySelector('.resize-handle');
+    var elementBeingResized;
+
+    function initResize(e) {
+        // Предотвращаем всплывающие события
+        e.preventDefault();
+        e.stopPropagation();
+        elementBeingResized = resizeHandle.parentNode;
+        window.addEventListener('mousemove', startResizing, false);
+        window.addEventListener('mouseup', stopResizing, false);
+    }
+
+    function startResizing(e) {
+        if (!elementBeingResized) return;
+
+        // Рассчитываем новые размеры, основываясь на позиции курсора
+        const minWidth = 50; // Минимальная ширина
+        const minHeight = 50; // Минимальная высота
+        const newWidth = Math.max(e.clientX - elementBeingResized.offsetLeft, minWidth);
+        const newHeight = Math.max(e.clientY - elementBeingResized.offsetTop, minHeight);
+
+        // Применяем размеры к элементу
+        elementBeingResized.style.width = `${newWidth}px`;
+        elementBeingResized.style.height = `${newHeight}px`;
+    }
+
+    function stopResizing() {
+        // Удаляем обработчики событий
+        window.removeEventListener('mousemove', startResizing, false);
+        window.removeEventListener('mouseup', stopResizing, false);
+        elementBeingResized = null;
+    }
+
+    resizeHandle.addEventListener('mousedown', initResize, false);
+});
+
+        </script>
 
     <div class="left_buttom">
         <img class="pict_bttom" src="{% static '/images/left.svg'%}"  alt="" width="80px" height="70px">
@@ -42,10 +127,9 @@
         <img class="pict_bttom" src="{% static '/images/text.svg'%}"  alt="" width="80px" height="70px">
     </div>
 
-    </div>
 
-    <div class="workspace_screen">
-    </div>
+
+    <div class="workspace_screen"></div>
 
 
 
