@@ -570,3 +570,137 @@ border-rop-left-radius:20px;
     margin: auto;
 
 }
+
+.name_traning{
+
+    position: fixed;
+    top: 20px;
+    left: 129px;
+}
+
+.right_buttom {
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 145px;
+    left: 129px;
+    transition: background-color 0.8s;
+    position: absolute;
+    cursor: move;
+}
+
+.right_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.pict_bttom{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: move;
+}
+
+.left_buttom{
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 279px;
+    left: 129px;
+    transition: background-color 0.8s;
+    cursor: move;
+}
+
+.left_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.double_buttom{
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 412px;
+    left: 129px;
+    transition: background-color 0.8s;
+    cursor: move;
+}
+
+.double_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.finger_buttom{
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 546px;
+    left: 129px;
+    transition: background-color 0.8s;
+    cursor: move;
+}
+
+.finger_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.keyboard_buttom{
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 679px;
+    left: 129px;
+    transition: background-color 0.8s;
+    cursor: move;
+}
+
+.keyboard_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.text_buttom{
+    width: 130px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 813px;
+    left: 129px;
+    transition: background-color 0.8s;
+    cursor: move;
+}
+
+.text_buttom:hover {
+    background-color: #A9A9A9;
+}
+
+.workspace_screen {
+    position: fixed;
+    right: 70px;
+    top: 234px;
+    left: 420px;
+    bottom: 100px;
+    width: 950px;
+    height: 690px;
+    border: 5px solid #000000; /* Устанавливаем рамку шириной 2px и цветом #D9D9D9 */
+    background-color: transparent; /* Делаем фон прозрачным */
+}
+
+.new_object {
+    width: 100px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    background-color: #f0f0f0; /* Adjust color as needed */
+    position: absolute;
+    top: 130px; /* Adjust position as needed */
+    left: 260px; /* Adjust position as needed */
+    border-radius: 10px; /* Optional, for rounded corners */
+}

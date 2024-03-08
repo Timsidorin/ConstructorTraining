@@ -3,6 +3,45 @@
 {% block content %}
     {% load static %}
     {% if user.is_authenticated %}
-        <h1>{{training.title}}</h1>
+    <div class="name_traning">
+        <h1>Название проекта: {{training.title}}</h1>
     {% endif %}
+    </div>
+
+    <div class="right_buttom">
+        <img class="pict_bttom" src="{% static '/images/SVGRepo_iconCarrier.svg'%}" alt="" width="80px" height="70px">
+        <!-- New Object to Show on Click -->
+        <div class="new_object" style="display: none;">New Object</div>
+    </div>
+    
+
+    <div class="left_buttom">
+        <img class="pict_bttom" src="{% static '/images/left.svg'%}"  alt="" width="80px" height="70px">
+    </div>
+
+    <div class="double_buttom">
+        <img class="pict_bttom" src="{% static '/images/double.svg'%}"  alt="" width="80px" height="70px">
+    </div>
+
+    <div class="finger_buttom">
+        <img class="pict_bttom" src="{% static '/images/finger.svg'%}"  alt="" width="80px" height="70px">
+    </div>
+
+    <div class="keyboard_buttom">
+        <img class="pict_bttom" src="{% static '/images/keyboard.svg'%}"  alt="" width="80px" height="70px">
+    </div>
+
+    <div class="text_buttom">
+        <img class="pict_bttom" src="{% static '/images/text.svg'%}"  alt="" width="80px" height="70px">
+    </div>
+
+    <div class="workspace_screen">
+    </div>
+
+    <form action="/mytrainings/" class="button_home">
+        <button type="submit">Вернуться обратно</button>
+    </form>
+
+
+
 {% endblock %}
