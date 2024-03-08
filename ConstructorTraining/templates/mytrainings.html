@@ -8,8 +8,9 @@
     <div class="header">
         <a class="user" href="#">{{user.username}}</a>
         <a class="logout" href="{% url 'logout' %}">Выйти</a>
-
+         <div class="mycards">Мои тренинги</div>
         <div class="card-container">
+
             {% csrf_token %}
             {% if trainings %}
                 {% for training in trainings %}
@@ -24,8 +25,8 @@
                         </div>
                     </div>
                 {% endfor %}
-                <form action="/" class="button_back">
-                    <button type="submit">Вернуться обратно</button>
+                <form action="/" >
+                    <button class="button_back" type="submit">Вернуться обратно</button>
                 </form>
             {% else %}
                 <p class="no-trainings">Вы еще не создали ни одного тренинга!</p>

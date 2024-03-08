@@ -4,10 +4,14 @@
     {% load static %}
     {% if user.is_authenticated %}
     <div class="name_traning">
-        <h1>Название проекта: {{training.title}}</h1>
-    {% endif %}
+        <form action="/mytrainings/" class="button_home">
+        <button type="submit">Вернуться назад</button>
+         </form>
+        <h1 class="constructortitle">Название проекта:  {{training.title}}</h1>
+
     </div>
 
+    <div class="tools">
     <div class="right_buttom">
         <img class="pict_bttom" src="{% static '/images/SVGRepo_iconCarrier.svg'%}" alt="" width="80px" height="70px">
         <!-- New Object to Show on Click -->
@@ -35,13 +39,13 @@
         <img class="pict_bttom" src="{% static '/images/text.svg'%}"  alt="" width="80px" height="70px">
     </div>
 
+    </div>
+
     <div class="workspace_screen">
     </div>
 
-    <form action="/mytrainings/" class="button_home">
-        <button type="submit">Вернуться обратно</button>
-    </form>
 
 
+{% endif %}
 
 {% endblock %}
