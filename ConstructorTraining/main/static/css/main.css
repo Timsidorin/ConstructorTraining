@@ -475,7 +475,7 @@ text-align:center;
 .mycards{
     text-align:center;
     font-size:40px;
-    margin-top:35px;
+
     font-weight:600;
     font-family:Arial;
 
@@ -535,7 +535,7 @@ border-top-left-radius:20px;
     border: none; /* Убрать границу */
     border-radius: 5px; /* Закруглить углы */
     cursor: pointer; /* Изменить курсор при наведении */
-    margin-left:120px;
+    margin-left:90px;
 
 }
 
@@ -574,8 +574,15 @@ border-rop-left-radius:20px;
     font-size: 20px;
 }
 
-.button_back {
-
+.button_back button{
+    display:flex;
+    background-color: #3f2c88; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border: none; /* Убрать границу */
+    border-radius: 5px; /* Закруглить углы */
+    cursor: pointer; /* Изменить курсор при наведении */
+    margin:40px 0px 0px 30px;
 
 }
 
@@ -712,8 +719,8 @@ border-rop-left-radius:20px;
      left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 1300px;
-    height: 800px;
+    width: 1200px;
+    height: 700px;
     border: 1px solid #000000; /* Устанавливаем рамку шириной 2px и цветом #D9D9D9 */
     background-color: transparent; /* Делаем фон прозрачным */
     border-radius: 20px;

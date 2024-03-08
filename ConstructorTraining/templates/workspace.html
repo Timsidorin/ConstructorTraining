@@ -3,6 +3,9 @@
 {% block content %}
     {% load static %}
     {% if user.is_authenticated %}
+<div class="header">
+        <a class="user" href="#">{{user.username}}</a>
+        <a class="logout" href="{% url 'logout' %}">Выйти</a>
     <div class="name_traning">
         <form action="/mytrainings/" class="button_home">
         <button type="submit">Вернуться назад</button>

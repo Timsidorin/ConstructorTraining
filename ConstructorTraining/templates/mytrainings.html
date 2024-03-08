@@ -6,9 +6,14 @@
 
 {% if user.is_authenticated %}
     <div class="header">
+
         <a class="user" href="#">{{user.username}}</a>
         <a class="logout" href="{% url 'logout' %}">Выйти</a>
+         <form action="/"  class="button_back">
+            <button  type="submit">Вернуться назад</button>
+        </form>
          <div class="mycards">Мои тренинги</div>
+
         <div class="card-container">
 
             {% csrf_token %}
@@ -25,9 +30,7 @@
                         </div>
                     </div>
                 {% endfor %}
-                <form action="/" >
-                    <button class="button_back" type="submit">Вернуться обратно</button>
-                </form>
+
             {% else %}
                 <p class="no-trainings">Вы еще не создали ни одного тренинга!</p>
                 <form action="/" class="button_home">
