@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% load static %}
-    {% if user.is_authenticated %}
-        <form method="post">
-            {% csrf_token %}
-            <div class="edit">
-                <h1>Новое название</h1>
-            <div class="form-group">
-                {{ form.title }}
-            </div>
-            <button type="submit" class="btn">Save</button>
-            </div>
+{% load static %}
+{% if user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    <div class="edit">
+        <h1>Новое название</h1>
+        <div class="form-group">
+            {{ form.title }}
+        </div>
+        <button type="submit" class="btn">Save</button>
+    </div>
 
-        </form>
-    {% endif %}
+</form>
+{% endif %}
 {% endblock %}
-

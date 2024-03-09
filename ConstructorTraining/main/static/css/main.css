@@ -1,14 +1,14 @@
-
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-    text-decoration: none; /* Отменяем подчеркивание у ссылки */
-   }
+    text-decoration: none;
+    /* Отменяем подчеркивание у ссылки */
+}
 
-body{
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -16,14 +16,14 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-   background: ;
+    background: ;
 
     background-size: cover;
 }
 
 
-.login-form{
-    display:flex;
+.login-form {
+    display: flex;
 }
 
 .registration-heading {
@@ -80,57 +80,60 @@ button[type="deadline"]:hover {
 }
 
 
-.contain{
-    display:flex;
-    width:100%;
-    height:100%;
+.contain {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 
-.parent{
-  display:flex;
-  margin-inline: auto;
-  margin-block-start: 50vh;
-  transform: translateY(-50%);
+.parent {
+    display: flex;
+    margin-inline: auto;
+    margin-block-start: 50vh;
+    transform: translateY(-50%);
 }
 
-.create-training{
+.create-training {
     width: 450px;
     height: 450px;
-     overflow: hidden;
-     background-color: rgb(0 0 0 / 77%) ;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
-  text-align: center;
-  border-radius: 25px;
-    margin: 0 70px; /* Отступы между квадратами */
+    overflow: hidden;
+    background-color: rgb(0 0 0 / 77%);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    text-align: center;
+    border-radius: 25px;
+    margin: 0 70px;
+    /* Отступы между квадратами */
     transition: all 0.3s ease-in-out;
 
 }
-.create-training:hover{
+
+.create-training:hover {
     transform: scale(1.1);
 }
 
 
 
-.my-trainings{
+.my-trainings {
     width: 450px;
     height: 450px;
-     overflow: hidden;
-    background-color: rgb(0 0 0 / 77%) ;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
-  text-align: center;
-  border-radius: 25px;
-    margin: 0 70px; /* Отступы между квадратами */
+    overflow: hidden;
+    background-color: rgb(0 0 0 / 77%);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    text-align: center;
+    border-radius: 25px;
+    margin: 0 70px;
+    /* Отступы между квадратами */
     transition: all 0.3s ease-in-out;
 
 }
 
-.my-trainings:hover{
+.my-trainings:hover {
     transform: scale(1.1);
 }
 
-.text{
-    padding-top:150px;
+.text {
+    padding-top: 150px;
     font-family: Tahoma;
     font-size: 41px;
     letter-spacing: 0px;
@@ -141,73 +144,75 @@ button[type="deadline"]:hover {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 
 
 }
 
 
-.header{
-    width:100%;
-    height:50px;
-    border-bottom-right-radius :15px;
-    border-bottom-left-radius :15px;
+.header {
+    width: 100%;
+    height: 50px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     background-color: #3f2c88;
     text-align: right;
     padding: 5px 30px 0px 30px;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
-    display:block;
+    display: block;
 }
 
-.login{
-    color:white;
+.login {
+    color: white;
     font-family: Tahoma;
     font-size: 25px;
 
 }
 
-.reg{
-    color:white;
+.reg {
+    color: white;
     font-family: Tahoma;
     font-size: 25px;
 
 }
 
 
-.maindiv{
-  display:flex;
-  margin: auto;
-  margin-block-start: 50vh;
-  transform: translateY(-50%);
-  align-items:center;
-  justify-content:center;
+.maindiv {
+    display: flex;
+    margin: auto;
+    margin-block-start: 50vh;
+    transform: translateY(-50%);
+    align-items: center;
+    justify-content: center;
 
 }
 
 
-.photo{
-     transform: rotate(0deg);
+.photo {
+    transform: rotate(0deg);
     /* Добавляем анимацию для плавного поворота */
-    animation: rotateAnimation 1s ease-in-out ;
+    animation: rotateAnimation 1s ease-in-out;
 
 }
 
 
 @keyframes rotateAnimation {
+
     /* Устанавливаем стили для анимации */
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
 
-.title{
-text-align:center;
+.title {
+    text-align: center;
     position: relative;
-    margin-left:40px;
+    margin-left: 40px;
     right: -100%;
     animation: slideInRight 1s forwards;
 }
@@ -216,87 +221,89 @@ text-align:center;
     from {
         right: -100%;
     }
+
     to {
         right: 0;
     }
 }
 
 
-.text-title{
-      font-family: Arial;
+.text-title {
+    font-family: Arial;
     font-size: 60px;
     letter-spacing: 0px;
     word-spacing: 0px;
-     font-weight: 600;
+    font-weight: 600;
     text-decoration: none;
 
 
 }
 
-.password_reset{
- color:rgba(0, 0, 0, 0.5);
-     font-family: Arial;
+.password_reset {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: Arial;
     font-size: 15px;
 }
 
-.btn-success{
-     align-items:center;
+.btn-success {
+    align-items: center;
 
 }
 
 
-.form-control{
+.form-control {
 
-  margin-inline: auto;
-  margin-block-start: 50vh;
-  transform: translateY(-50%);
-    align-items:center;
-    text-align:center;
+    margin-inline: auto;
+    margin-block-start: 50vh;
+    transform: translateY(-50%);
+    align-items: center;
+    text-align: center;
 
     background: rgba(0, 0, 0, 0);
     border: 0px;
-    color:rgba(0, 0, 0, 0.5);
-     font-family: Arial;
+    color: rgba(0, 0, 0, 0.5);
+    font-family: Arial;
     font-size: 18px;
     letter-spacing: 0px;
     word-spacing: 0px;
-     font-weight: 600;
+    font-weight: 600;
     text-decoration: none;
 
 }
 
 
-.logout{
+.logout {
 
-        color:white;
+    color: white;
     font-family: Arial;
     font-size: 22px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-.user{
+.user {
 
-       color:white;
+    color: white;
     font-family: Arial;
     font-size: 22px;
-    cursor:pointer;
-    margin-right:20px;
-    padding-top:15px;
-    text-decoration:none;
+    cursor: pointer;
+    margin-right: 20px;
+    padding-top: 15px;
+    text-decoration: none;
 
 }
 
-.click{
-    position:absolute;
-    width:100%;
-    height:100%;
+.click {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 /* Стили для модального окна */
 .modal {
     overflow: hidden;
     display: none;
-    position: fixed; /* Используйте fixed вместо absolute */
+    position: fixed;
+    /* Используйте fixed вместо absolute */
     z-index: 1;
     left: 0;
     top: 0;
@@ -316,68 +323,69 @@ text-align:center;
     padding: 20px;
     width: 600px;
 
-        border-radius: 25px;
-    }
+    border-radius: 25px;
+}
 
-.form-check-label{
-    margin-top:50px;
+.form-check-label {
+    margin-top: 50px;
 }
 
 .input__wrapper {
-  width: 100%;
-  position: relative;
-  margin: 15px 0;
-  text-align: center;
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+    text-align: center;
 }
 
 .input__file {
-  opacity: 0;
+    opacity: 0;
 
-  position: absolute;
+    position: absolute;
 }
 
 .input__file-icon-wrapper {
-  height: 50px;
-  width: 60px;
-  margin-right: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-right: 1px solid #fff;
+    height: 50px;
+    width: 60px;
+    margin-right: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-right: 1px solid #fff;
 }
 
 .input__file-button-text {
-  line-height: 1;
-  margin-top: 1px;
-  text-align: center;
+    line-height: 1;
+    margin-top: 1px;
+    text-align: center;
 }
 
 .input__file-button {
-  width: 250px;
-  max-width: 250px;
-  height: 50px;
-  background: #3f2c88;;
-  color: #fff;
-  font-size: 1.125rem;
-  font-weight: 700;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 0 auto;
+    width: 250px;
+    max-width: 250px;
+    height: 50px;
+    background: #3f2c88;
+    ;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 auto;
 }
 
 
@@ -397,16 +405,16 @@ text-align:center;
 }
 
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
-    width:100%;
+    width: 100%;
 
-    text-align:center;
-    align-items:center;
+    text-align: center;
+    align-items: center;
 }
 
-.form-title{
+.form-title {
     font-family: Arial;
     font-size: 25px;
     font-weight: 700;
@@ -414,179 +422,197 @@ text-align:center;
 }
 
 
-.training-title{
-    height:40px;
-    width:250px;
-    text-align:center;
+.training-title {
+    height: 40px;
+    width: 250px;
+    text-align: center;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border:1px solid black;
+    border: 1px solid black;
     margin: 10px;
 }
 
-.training-description{
-    height:70px;
-    width:250px;
-    text-align:center;
+.training-description {
+    height: 70px;
+    width: 250px;
+    text-align: center;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border:1px solid black;
+    border: 1px solid black;
     margin: 10px;
 }
 
-.form-switch{
-        margin-bottom:20px;
+.form-switch {
+    margin-bottom: 20px;
 
 }
 
 
-.card-container{
+.card-container {
     display: flex;
- flex-wrap: wrap;
- justify-content: start;
+    flex-wrap: wrap;
+    justify-content: start;
 
 }
 
 
-.no-trainings{
+.no-trainings {
     font-family: Arial;
     font-size: 41px;
     letter-spacing: 0px;
     word-spacing: 0px;
-    position:absolute;
-    width:100%;
-    top:50%;
-    text-align:center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    text-align: center;
     font-weight: 700;
     text-decoration: none;
 }
 
-.card{
-    margin:60px 10px 20px 30px;
-    border-radius:30px;
+.card {
+    margin: 60px 10px 20px 30px;
+    border-radius: 30px;
     transition: all 0.3s ease-in-out;
     display: inline-block;
     vertical-align: middle;
-    box-shadow: -3px 0px 26px -2px rgba(0,0,0,0.35);
+    box-shadow: -3px 0px 26px -2px rgba(0, 0, 0, 0.35);
 
 }
 
 
-.mycards{
-    text-align:center;
-    font-size:40px;
+.mycards {
+    text-align: center;
+    font-size: 40px;
 
-    font-weight:600;
-    font-family:Arial;
+    font-weight: 600;
+    font-family: Arial;
 
 }
 
 
-.card:hover{
+.card:hover {
     transform: scale(1.1);
 }
 
-.card-title{
-    text-align:center;
+.card-title {
+    text-align: center;
     font-size: 20px;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 
 }
 
 
-.card-text{
-    text-align:left;
+.card-text {
+    text-align: left;
 }
 
-.card-img-top{
-height:150px;
-overflow: hidden;
-width:100%;
-border-top-right-radius:20px;
-border-top-left-radius:20px;
+.card-img-top {
+    height: 150px;
+    overflow: hidden;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
-.btn{
+.btn {
     display: flex;
-    justify-content: center; /*Центрирование по горизонтали*/
-    align-items: center;     /*Центрирование по вертикали */
+    justify-content: center;
+    /*Центрирование по горизонтали*/
+    align-items: center;
+    /*Центрирование по вертикали */
     background-color: #3f2c88;
-    color:white;
-    margin-bottom:8px;
-    text-decoration:none;
+    color: white;
+    margin-bottom: 8px;
+    text-decoration: none;
 
 }
 
-.btn_del{
+.btn_del {
     display: flex;
-    justify-content: center; /*Центрирование по горизонтали*/
-    align-items: center;     /*Центрирование по вертикали */
-    background-color: #adadad;;
-    color:white;
-    text-decoration:none;
+    justify-content: center;
+    /*Центрирование по горизонтали*/
+    align-items: center;
+    /*Центрирование по вертикали */
+    background-color: #adadad;
+    ;
+    color: white;
+    text-decoration: none;
 
 }
 
 
 .button_home button {
-    background-color: #3f2c88; /* Цвет фона */
-    color: white; /* Цвет текста */
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    border: none; /* Убрать границу */
-    border-radius: 5px; /* Закруглить углы */
-    cursor: pointer; /* Изменить курсор при наведении */
-    margin-left:90px;
+    background-color: #3f2c88;
+    /* Цвет фона */
+    color: white;
+    /* Цвет текста */
+    padding: 10px 20px;
+    /* Отступы внутри кнопки */
+    border: none;
+    /* Убрать границу */
+    border-radius: 5px;
+    /* Закруглить углы */
+    cursor: pointer;
+    /* Изменить курсор при наведении */
+    margin-left: 90px;
 
 }
 
 
-.constructortitle{
-    text-align:center;
+.constructortitle {
+    text-align: center;
     position: absolute;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    margin-top: 55px ;
+    margin-top: 55px;
     font-family: Arial;
     font-size: 40px;
-    font-weight:500;
+    font-weight: 500;
 
 
-    }
+}
 
 
 
 .button_home button:hover {
-    background-color: #2f2066; /* Изменение цвета фона при наведении */
+    background-color: #2f2066;
+    /* Изменение цвета фона при наведении */
 }
 
-.card-img-top{
-height:150px;
-overflow: hidden;
-width:100%;
-border-rop-right-radius:20px;
-border-rop-left-radius:20px;
+.card-img-top {
+    height: 150px;
+    overflow: hidden;
+    width: 100%;
+    border-rop-right-radius: 20px;
+    border-rop-left-radius: 20px;
 }
 
 
-.form-group{
+.form-group {
     font-family: Arial;
     font-size: 20px;
 }
 
-.button_back button{
-    display:flex;
-    background-color: #3f2c88; /* Цвет фона */
-    color: white; /* Цвет текста */
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    border: none; /* Убрать границу */
-    border-radius: 5px; /* Закруглить углы */
-    cursor: pointer; /* Изменить курсор при наведении */
-    margin:40px 0px 0px 30px;
+.button_back button {
+    display: flex;
+    background-color: #3f2c88;
+    /* Цвет фона */
+    color: white;
+    /* Цвет текста */
+    padding: 10px 20px;
+    /* Отступы внутри кнопки */
+    border: none;
+    /* Убрать границу */
+    border-radius: 5px;
+    /* Закруглить углы */
+    cursor: pointer;
+    /* Изменить курсор при наведении */
+    margin: 40px 0px 0px 30px;
 
 }
 
-.edit{
+.edit {
 
     width: 250px;
     height: 250px;
@@ -599,12 +625,12 @@ border-rop-left-radius:20px;
 
 }
 
-.name_traning{
-    width:100%;
-    text-align:center;
-    align-items:center;
-    display:flex;
-    padding:20px 0px 30px 0px;
+.name_traning {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    padding: 20px 0px 30px 0px;
 }
 
 .right_buttom {
@@ -624,7 +650,7 @@ border-rop-left-radius:20px;
     background-color: #A9A9A9;
 }
 
-.pict_bttom{
+.pict_bttom {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -632,7 +658,7 @@ border-rop-left-radius:20px;
     cursor: pointer;
 }
 
-.left_buttom{
+.left_buttom {
     width: 130px;
     height: 120px;
     border-radius: 50px;
@@ -648,7 +674,7 @@ border-rop-left-radius:20px;
     background-color: #A9A9A9;
 }
 
-.double_buttom{
+.double_buttom {
     width: 130px;
     height: 120px;
     border-radius: 50px;
@@ -664,7 +690,7 @@ border-rop-left-radius:20px;
     background-color: #A9A9A9;
 }
 
-.finger_buttom{
+.finger_buttom {
     width: 130px;
     height: 120px;
     border-radius: 50px;
@@ -680,7 +706,7 @@ border-rop-left-radius:20px;
     background-color: #A9A9A9;
 }
 
-.keyboard_buttom{
+.keyboard_buttom {
     width: 130px;
     height: 120px;
     border-radius: 50px;
@@ -696,7 +722,7 @@ border-rop-left-radius:20px;
     background-color: #A9A9A9;
 }
 
-.text_buttom{
+.text_buttom {
     width: 130px;
     height: 120px;
     border-radius: 50px;
@@ -706,7 +732,7 @@ border-rop-left-radius:20px;
     left: 129px;
     transition: background-color 0.8s;
     cursor: pointer;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .text_buttom:hover {
@@ -714,15 +740,17 @@ border-rop-left-radius:20px;
 }
 
 .workspace_screen {
-    margin-top:40px;
+    margin-top: 40px;
     position: fixed;
-     left: 50%;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 1200px;
     height: 700px;
-    border: 1px solid #000000; /* Устанавливаем рамку шириной 2px и цветом #D9D9D9 */
-    background-color: transparent; /* Делаем фон прозрачным */
+    border: 1px solid #000000;
+    /* Устанавливаем рамку шириной 2px и цветом #D9D9D9 */
+    background-color: transparent;
+    /* Делаем фон прозрачным */
     border-radius: 20px;
 }
 
@@ -732,12 +760,17 @@ border-rop-left-radius:20px;
 
 
 .new_object {
-    width: 100px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    background-color: transparent; /* Adjust color as needed */
+    width: 100px;
+    /* Adjust size as needed */
+    height: 50px;
+    /* Adjust size as needed */
+    background-color: transparent;
+    /* Adjust color as needed */
     position: absolute;
-    top: 130px; /* Adjust position as needed */
-    left: 260px; /* Adjust position as needed */
+    top: 130px;
+    /* Adjust position as needed */
+    left: 260px;
+    /* Adjust position as needed */
     border: 1px solid red;
     z-index: 1000;
 

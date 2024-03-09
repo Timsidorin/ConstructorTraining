@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% load static %}
-    {% if user.is_authenticated %}
+{% load static %}
+{% if user.is_authenticated %}
 <div class="header">
-        <a class="user" href="#">{{user.username}}</a>
-        <a class="logout" href="{% url 'logout' %}">Выйти</a>
+    <a class="user" href="#">{{user.username}}</a>
+    <a class="logout" href="{% url 'logout' %}">Выйти</a>
     <div class="name_traning">
         <form action="/mytrainings/" class="button_home">
-        <button type="submit">Вернуться назад</button>
-         </form>
-        <h1 class="constructortitle">Название тренинга:  {{training.title}}</h1>
+            <button type="submit">Вернуться назад</button>
+        </form>
+        <h1 class="constructortitle">Название тренинга: {{training.title}}</h1>
 
     </div>
 
@@ -20,111 +20,113 @@
         <img class="pict_bttom" src="{% static '/images/SVGRepo_iconCarrier.svg'%}" alt="" width="80px" height="70px">
         <!-- New Object to Show on Click -->
         <div class="new_object" style="display: none;">
-        <div class="resize-handle"></div>
+            <div class="resize-handle"></div>
         </div>
     </div>
 
 
-            <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var rightButton = document.querySelector('.right_buttom');
-    if (rightButton) {
-        rightButton.addEventListener('click', function () {
-            var newObj = document.querySelector('.new_object');
-            newObj.style.display = 'block'; // Показываем объект без условий
-            enableDrag(newObj);
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var rightButton = document.querySelector('.right_buttom');
+            if (rightButton) {
+                rightButton.addEventListener('click', function() {
+                    var newObj = document.querySelector('.new_object');
+                    newObj.style.display = 'block'; // Показываем объект без условий
+                    enableDrag(newObj);
+                });
+            }
         });
-    }
-});
 
-function enableDrag(element) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    element.onmousedown = dragMouseDown;
+        function enableDrag(element) {
+            var pos1 = 0,
+                pos2 = 0,
+                pos3 = 0,
+                pos4 = 0;
+            element.onmousedown = dragMouseDown;
 
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
-    }
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            }
 
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
 
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
-    }
+                element.style.top = (element.offsetTop - pos2) + "px";
+                element.style.left = (element.offsetLeft - pos1) + "px";
+            }
 
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
 
-document.addEventListener('DOMContentLoaded', function () {
-    var resizeHandle = document.querySelector('.resize-handle');
-    var elementBeingResized;
+        document.addEventListener('DOMContentLoaded', function() {
+            var resizeHandle = document.querySelector('.resize-handle');
+            var elementBeingResized;
 
-    function initResize(e) {
-        // Предотвращаем всплывающие события
-        e.preventDefault();
-        e.stopPropagation();
-        elementBeingResized = resizeHandle.parentNode;
-        window.addEventListener('mousemove', startResizing, false);
-        window.addEventListener('mouseup', stopResizing, false);
-    }
+            function initResize(e) {
+                // Предотвращаем всплывающие события
+                e.preventDefault();
+                e.stopPropagation();
+                elementBeingResized = resizeHandle.parentNode;
+                window.addEventListener('mousemove', startResizing, false);
+                window.addEventListener('mouseup', stopResizing, false);
+            }
 
-    function startResizing(e) {
-        if (!elementBeingResized) return;
+            function startResizing(e) {
+                if (!elementBeingResized) return;
 
-        // Рассчитываем новые размеры, основываясь на позиции курсора
-        const minWidth = 10; // Минимальная ширина
-        const minHeight = 10; // Минимальная высота
-        const newWidth = Math.max(e.clientX - elementBeingResized.offsetLeft, minWidth);
-        const newHeight = Math.max(e.clientY - elementBeingResized.offsetTop, minHeight);
+                // Рассчитываем новые размеры, основываясь на позиции курсора
+                const minWidth = 10; // Минимальная ширина
+                const minHeight = 10; // Минимальная высота
+                const newWidth = Math.max(e.clientX - elementBeingResized.offsetLeft, minWidth);
+                const newHeight = Math.max(e.clientY - elementBeingResized.offsetTop, minHeight);
 
-        // Применяем размеры к элементу
-        elementBeingResized.style.width = `${newWidth}px`;
-        elementBeingResized.style.height = `${newHeight}px`;
-    }
+                // Применяем размеры к элементу
+                elementBeingResized.style.width = `${newWidth}px`;
+                elementBeingResized.style.height = `${newHeight}px`;
+            }
 
-    function stopResizing() {
-        // Удаляем обработчики событий
-        window.removeEventListener('mousemove', startResizing, false);
-        window.removeEventListener('mouseup', stopResizing, false);
-        elementBeingResized = null;
-    }
+            function stopResizing() {
+                // Удаляем обработчики событий
+                window.removeEventListener('mousemove', startResizing, false);
+                window.removeEventListener('mouseup', stopResizing, false);
+                elementBeingResized = null;
+            }
 
-    resizeHandle.addEventListener('mousedown', initResize, false);
-});
-
-        </script>
+            resizeHandle.addEventListener('mousedown', initResize, false);
+        });
+    </script>
 
     <div class="left_buttom">
-        <img class="pict_bttom" src="{% static '/images/left.svg'%}"  alt="" width="80px" height="70px">
+        <img class="pict_bttom" src="{% static '/images/left.svg'%}" alt="" width="80px" height="70px">
     </div>
 
     <div class="double_buttom">
-        <img class="pict_bttom" src="{% static '/images/double.svg'%}"  alt="" width="80px" height="70px">
+        <img class="pict_bttom" src="{% static '/images/double.svg'%}" alt="" width="80px" height="70px">
     </div>
 
     <div class="finger_buttom">
-        <img class="pict_bttom" src="{% static '/images/finger.svg'%}"  alt="" width="80px" height="70px">
+        <img class="pict_bttom" src="{% static '/images/finger.svg'%}" alt="" width="80px" height="70px">
     </div>
 
     <div class="keyboard_buttom">
-        <img class="pict_bttom" src="{% static '/images/keyboard.svg'%}"  alt="" width="80px" height="70px">
+        <img class="pict_bttom" src="{% static '/images/keyboard.svg'%}" alt="" width="80px" height="70px">
     </div>
 
     <div class="text_buttom">
-        <img class="pict_bttom" src="{% static '/images/text.svg'%}"  alt="" width="80px" height="70px">
+        <img class="pict_bttom" src="{% static '/images/text.svg'%}" alt="" width="80px" height="70px">
     </div>
 
 
@@ -133,6 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-{% endif %}
+    {% endif %}
 
-{% endblock %}
+    {% endblock %}
