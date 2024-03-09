@@ -18,11 +18,12 @@
 
     <div class="right_buttom">
         <img class="pict_bttom" src="{% static '/images/SVGRepo_iconCarrier.svg'%}" alt="" width="80px" height="70px">
-        <!-- New Object to Show on Click -->
         <div class="new_object" style="display: none;">
-        <div class="resize-handle"></div>
+            <div class="resize-handle"></div>
         </div>
     </div>
+    <button onclick="saveObject()">Сохранить объект</button>
+
 
 
             <script>
@@ -39,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function enableDrag(element) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    var isDragging = false;
+
     element.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
@@ -46,11 +49,16 @@ function enableDrag(element) {
         e.preventDefault();
         pos3 = e.clientX;
         pos4 = e.clientY;
+        isDragging = true;
         document.onmouseup = closeDragElement;
         document.onmousemove = elementDrag;
     }
 
     function elementDrag(e) {
+        if (!isDragging) {
+            return; // Если перемещение не активно, прекращаем функцию
+        }
+
         e = e || window.event;
         e.preventDefault();
         pos1 = pos3 - e.clientX;
@@ -63,8 +71,9 @@ function enableDrag(element) {
     }
 
     function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
+        isDragging = false; // Прекращаем перемещение
+        // После завершения перемещения объекта, ничего не делаем.
+        // Координаты будут отправлены только после нажатия кнопки.
     }
 }
 
@@ -96,6 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function stopResizing() {
+        // Сохраняем размеры после изменения размера
+        localStorage.setItem('resizedElementWidth', elementBeingResized.style.width);
+        localStorage.setItem('resizedElementHeight', elementBeingResized.style.height);
+
         // Удаляем обработчики событий
         window.removeEventListener('mousemove', startResizing, false);
         window.removeEventListener('mouseup', stopResizing, false);
@@ -104,6 +117,49 @@ document.addEventListener('DOMContentLoaded', function () {
 
     resizeHandle.addEventListener('mousedown', initResize, false);
 });
+
+function getCsrfToken() {
+    var cookies = document.cookie.split(';');
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.startsWith('csrftoken=')) {
+            return cookie.substring('csrftoken='.length, cookie.length);
+        }
+    }
+    return '';
+}
+
+function saveObject() {
+    var element = document.querySelector('.new_object');
+    var objectId = element.getAttribute('data-id'); // Получаем текущий ID объекта
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/save_coordinates/', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('X-CSRFToken', getCsrfToken());
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            var response = JSON.parse(xhr.responseText);
+            if (xhr.status === 200) {
+                // Обновляем data-id у элемента
+                element.setAttribute('data-id', response.object_id);
+                alert("Координаты сохранены: " + JSON.stringify(response));
+            } else {
+                alert("Ошибка сохранения: " + response.error);
+            }
+        }
+    };
+
+
+    xhr.send(JSON.stringify({
+        object_id: objectId,  // Передаем текущий ID объекта
+        top: element.style.top,
+        left: element.style.left,
+        width: element.style.width,
+        height: element.style.height
+    }));
+}
 
         </script>
 
