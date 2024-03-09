@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load static %}
+    {% if user.is_authenticated %}
+        <h1>Личный кабинет</h1>
+        {{ user.username }}
+        <form action="/"  class="button_back">
+            <button  type="submit">Вернуться назад</button>
+        </form>
+    {% else %}
+        <p>User is not authenticated.</p>
+    {% endif %}
+{% endblock %}

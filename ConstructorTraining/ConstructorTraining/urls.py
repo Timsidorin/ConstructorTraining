@@ -8,8 +8,7 @@ from trainings.views import delete
 from trainings.views import mytrainings
 from trainings.views import workspace
 from trainings.views import traningedit
-
-
+from trainings.views import pool
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +21,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('traningedit/<int:id>/', traningedit, name='traningedit'),
     path('complete/<int:id>/', complete, name='complete'),
+    path('pool/<int:user_id>/', pool, name='pool'),
 ]

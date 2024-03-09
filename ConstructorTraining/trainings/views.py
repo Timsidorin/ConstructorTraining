@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from .forms import TrainingEditForm
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 # Create your views here.
 
 from django.http import HttpResponseRedirect, HttpResponseNotFound
@@ -84,3 +85,12 @@ def complete(request, id):
         return render(request, "complete.html", {"training": training})
     except Training.DoesNotExist:
         return HttpResponseNotFound("<h2>Training not found</h2>")
+
+def pool(request, user_id):
+    try:
+        author = request.user.id
+        User = get_user_model()
+        user = User.objects.get(id=user_id)
+        return render(request, "pool.html", {"user": user, "author": author})
+    except User.DoesNotExist:
+        return HttpResponseNotFound("<h2>User not found</h2>")

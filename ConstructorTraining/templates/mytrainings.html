@@ -7,7 +7,7 @@
 {% if user.is_authenticated %}
     <div class="header">
 
-        <a class="user" href="#">{{user.username}}</a>
+        <a class="user" href="{% url 'pool' user_id=user.id %}">{{user.username}}</a>
         <a class="logout" href="{% url 'logout' %}">Выйти</a>
          <form action="/"  class="button_back">
             <button  type="submit">Вернуться назад</button>
