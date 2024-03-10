@@ -9,3 +9,10 @@ class Training(models.Model):
     describe = models.CharField(max_length=200)
     #date_time = models.DateTimeField()
     logo = models.ImageField(upload_to='logotypes/')
+
+
+class Coordinates(models.Model):
+    top = models.CharField(max_length=50)
+    left = models.CharField(max_length=50)
+    width = models.CharField(max_length=50)
+    height = models.CharField(max_length=50)
