@@ -19,7 +19,7 @@
         {% csrf_token %}
         {% if trainings %}
         {% for training in trainings %}
-        <div class="card" style="width: 20rem;">
+        <div class="card" style="width: 18rem;">
             <img src="{% static training.logo %}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{training.title}}</h5>
