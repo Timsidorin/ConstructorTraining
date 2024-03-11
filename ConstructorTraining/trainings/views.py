@@ -11,8 +11,10 @@ from django.http import HttpResponseRedirect, HttpResponseNotFound
 from trainings.models import Training
 from django.http import JsonResponse
 import json
+import  datetime
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+
 def mytrainings(request):
     author = request.user.id
     trainings = Training.objects.filter(author=author)
