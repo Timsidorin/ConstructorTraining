@@ -183,9 +183,39 @@ function saveObject() {
         <img class="pict_bttom" src="{% static '/images/text.svg'%}"  alt="" width="80px" height="70px">
     </div>
 
+    <button id="myBtn">Обучение</button>
 
+    <div id="myModaxl" class="modalx">
+        <div class="modal-contentx">
+            <span class="closex">×</span>
+            <h1 class="Title_training">Обучение (также появятся картинки)</h1>
+            <p>Слева имеются кнопки (выборы режима тригера)</p>
+            <p>Перед началом работы необходимо выбрать какой-либо инструмент. После нажатия на соответствующий инструмент
+            достаточно ЛКМ выделить область, которая необходима. Далее нажать на кнопку "Подтвердить".
+            </p>
+        </div>
+    </div>
 
-    <div class="workspace_screen"></div>
+    <script>
+        var modalx = document.getElementById('myModaxl');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("closex")[0];
+
+        btn.onclick = function() {
+            modalx.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modalx.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modalx) {
+                modalx.style.display = "none";
+            }
+        }
+    </script>
+
 
 
 
