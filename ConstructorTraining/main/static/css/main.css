@@ -490,6 +490,12 @@ button[type="deadline"]:hover {
 
 }
 
+.datetime{
+    position:relative;
+    text-align:center;
+
+}
+
 
 
 

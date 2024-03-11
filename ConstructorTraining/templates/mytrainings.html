@@ -20,7 +20,11 @@
         {% if trainings %}
         {% for training in trainings %}
         <div class="card" style="width: 18rem;">
-            <img src="{% static training.logo %}" class="card-img-top" alt="...">
+            {% if training.logo %}
+            <img src="{{ training.logo.url }}" class="card-img-top" alt="...">
+            {% else %}
+            <div class="card-img-top"></div>
+            {% endif %}
             <div class="card-body">
                 <h5 class="card-title">{{training.title}}</h5>
                 <p class="card-text">📃 Описание: <br> <br /> {{training.describe}}</p>
@@ -29,6 +33,10 @@
                         <a href="/traningedit/{{ training.id }}/" class="btn">Редактор</a>
                         <a href="" class="btn_del" data-id="{{ training.id }}">Удалить</a>
                 </div>
+
+                <div class="datetime">{{ training.date_time|date:"Y-m-d H:i" }}</div>
+
+
             </div>
         </div>
         {% endfor %}
