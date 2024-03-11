@@ -21,7 +21,7 @@
         {% for training in trainings %}
         <div class="card" style="width: 18rem;">
             {% if training.logo %}
-            <img src="{{ training.logo.url }}" class="card-img-top" alt="...">
+            <img src="{% static training.logo %}" class="card-img-top" alt="...">
             {% else %}
             <div class="card-img-top"></div>
             {% endif %}
