@@ -17,7 +17,7 @@ body {
     align-items: center;
     overflow: hidden;
     background: ;
-
+    overflow: auto;
     background-size: cover;
 }
 
@@ -115,6 +115,7 @@ button[type="deadline"]:hover {
 
 
 .my-trainings {
+
     width: 450px;
     height: 450px;
     overflow: hidden;
@@ -450,6 +451,7 @@ button[type="deadline"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
+
 
 }
 

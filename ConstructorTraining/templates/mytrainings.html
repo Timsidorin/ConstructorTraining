@@ -35,9 +35,7 @@
 
         {% else %}
         <p class="no-trainings">Вы еще не создали ни одного тренинга!</p>
-        <form action="/" class="button_home">
-            <button type="submit">Вернуться обратно</button>
-        </form>
+
         {% endif %}
         <script>
             var csrfToken = '{{ csrf_token }}';
