@@ -26,123 +26,131 @@
 
 
 
-            <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
     var rightButton = document.querySelector('.right_buttom');
     if (rightButton) {
         rightButton.addEventListener('click', function () {
-            var newObj = document.querySelector('.new_object');
-            newObj.style.display = 'block'; // Показываем объект без условий
-            enableDrag(newObj);
+            enableDrawing(); // Запускаем режим создания объекта при нажатии на кнопку
         });
     }
 });
 
-function enableDrag(element) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    var isDragging = false;
+function enableDrawing() {
+    var startX, startY, currentX, currentY;
+    var drawingObject;
 
-    element.onmousedown = dragMouseDown;
+    document.onmousedown = startDrawing;
+    document.onmousemove = drawObject;
+    document.onmouseup = stopDrawing;
 
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        isDragging = true;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
+    function startDrawing(e) {
+        startX = e.clientX;
+        startY = e.clientY;
+        drawingObject = document.createElement('div');
+        drawingObject.className = 'new_object';
+        drawingObject.style.position = 'absolute';
+        drawingObject.style.left = startX + 'px';
+        drawingObject.style.top = startY + 'px';
+        document.body.appendChild(drawingObject);
     }
 
-    function elementDrag(e) {
-        if (!isDragging) {
-            return; // Если перемещение не активно, прекращаем функцию
-        }
-
-        e = e || window.event;
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
+    function drawObject(e) {
+        if (!drawingObject) return;
+        currentX = e.clientX;
+        currentY = e.clientY;
+        var width = currentX - startX;
+        var height = currentY - startY;
+        drawingObject.style.width = Math.abs(width) + 'px';
+        drawingObject.style.height = Math.abs(height) + 'px';
+        drawingObject.style.left = (width > 0) ? startX + 'px' : (startX + width) + 'px';
+        drawingObject.style.top = (height > 0) ? startY + 'px' : (startY + height) + 'px';
     }
 
-    function closeDragElement() {
-        isDragging = false; // Прекращаем перемещение
-        // После завершения перемещения объекта, ничего не делаем.
-        // Координаты будут отправлены только после нажатия кнопки.
+    function stopDrawing() {
+        document.onmousedown = null;
+        document.onmousemove = null;
+        document.onmouseup = null;
     }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var resizeHandle = document.querySelector('.resize-handle');
-    var elementBeingResized;
+        var resizeHandle = document.querySelector('.resize-handle');
+        var elementBeingResized;
 
-    function initResize(e) {
-        // Предотвращаем всплывающие события
-        e.preventDefault();
-        e.stopPropagation();
-        elementBeingResized = resizeHandle.parentNode;
-        window.addEventListener('mousemove', startResizing, false);
-        window.addEventListener('mouseup', stopResizing, false);
-    }
-
-    function startResizing(e) {
-        if (!elementBeingResized) return;
-
-        // Рассчитываем новые размеры, основываясь на позиции курсора
-        const minWidth = 10; // Минимальная ширина
-        const minHeight = 10; // Минимальная высота
-        const newWidth = Math.max(e.clientX - elementBeingResized.offsetLeft, minWidth);
-        const newHeight = Math.max(e.clientY - elementBeingResized.offsetTop, minHeight);
-
-        // Применяем размеры к элементу
-        elementBeingResized.style.width = `${newWidth}px`;
-        elementBeingResized.style.height = `${newHeight}px`;
-    }
-
-    function stopResizing() {
-        // Сохраняем размеры после изменения размера
-        localStorage.setItem('resizedElementWidth', elementBeingResized.style.width);
-        localStorage.setItem('resizedElementHeight', elementBeingResized.style.height);
-
-        // Удаляем обработчики событий
-        window.removeEventListener('mousemove', startResizing, false);
-        window.removeEventListener('mouseup', stopResizing, false);
-        elementBeingResized = null;
-    }
-
-    resizeHandle.addEventListener('mousedown', initResize, false);
-});
-
-function getCsrfToken() {
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        if (cookie.startsWith('csrftoken=')) {
-            return cookie.substring('csrftoken='.length, cookie.length);
+        function initResize(e) {
+            // Предотвращаем всплывающие события
+            e.preventDefault();
+            e.stopPropagation();
+            elementBeingResized = resizeHandle.parentNode;
+            window.addEventListener('mousemove', startResizing, false);
+            window.addEventListener('mouseup', stopResizing, false);
         }
-    }
-    return '';
-}
 
-function saveObject() {
+        function startResizing(e) {
+            if (!elementBeingResized) return;
+
+            // Рассчитываем новые размеры, основываясь на позиции курсора
+            const minWidth = 10; // Минимальная ширина
+            const minHeight = 10; // Минимальная высота
+            const newWidth = Math.max(e.clientX - elementBeingResized.offsetLeft, minWidth);
+            const newHeight = Math.max(e.clientY - elementBeingResized.offsetTop, minHeight);
+
+            // Применяем размеры к элементу
+            elementBeingResized.style.width = `${newWidth}px`;
+            elementBeingResized.style.height = `${newHeight}px`;
+        }
+
+        function stopResizing() {
+            // Сохраняем размеры после изменения размера
+            localStorage.setItem('resizedElementWidth', elementBeingResized.style.width);
+            localStorage.setItem('resizedElementHeight', elementBeingResized.style.height);
+
+            // Удаляем обработчики событий
+            window.removeEventListener('mousemove', startResizing, false);
+            window.removeEventListener('mouseup', stopResizing, false);
+            elementBeingResized = null;
+        }
+
+        resizeHandle.addEventListener('mousedown', initResize, false);
+    });
+
+    function getCsrfToken() {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.startsWith('csrftoken=')) {
+                return cookie.substring('csrftoken='.length, cookie.length);
+            }
+        }
+        return '';
+    }
+
+    function saveObject() {
     var element = document.querySelector('.new_object');
     var objectId = element.getAttribute('data-id'); // Получаем текущий ID объекта
+
+    // Use getBoundingClientRect to get accurate dimensions and position
+    var rect = element.getBoundingClientRect();
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/save_coordinates/', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('X-CSRFToken', getCsrfToken());
 
+    // Prepare data with getBoundingClientRect values
+    var data = {
+        object_id: objectId,
+        top: rect.top + 'px',
+        left: rect.left + 'px',
+        width: rect.width + 'px',
+        height: rect.height + 'px'
+    };
+
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             var response = JSON.parse(xhr.responseText);
             if (xhr.status === 200) {
-                // Обновляем data-id у элемента
                 element.setAttribute('data-id', response.object_id);
                 alert("Координаты сохранены: " + JSON.stringify(response));
             } else {
@@ -151,17 +159,10 @@ function saveObject() {
         }
     };
 
-
-    xhr.send(JSON.stringify({
-        object_id: objectId,  // Передаем текущий ID объекта
-        top: element.style.top,
-        left: element.style.left,
-        width: element.style.width,
-        height: element.style.height
-    }));
+    xhr.send(JSON.stringify(data));
 }
+    </script>
 
-        </script>
 
     <div class="left_buttom">
         <img class="pict_bttom" src="{% static '/images/left.svg'%}"  alt="" width="80px" height="70px">
