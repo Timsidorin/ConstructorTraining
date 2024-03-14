@@ -104,20 +104,20 @@ def pool(request, user_id):
 
 def save_coordinates(request):
     if request.method == 'POST':
-        data = json.loads(request.body)
-        object_id = data.get('object_id')
-        top = data.get('top')
-        left = data.get('left')
-        width = data.get('width')
-        height = data.get('height')
-
-
-        if not all([top, left, width, height]):
-            return JsonResponse({'error': 'Missing data'}, status=400)
-
-
         try:
+            data = json.loads(request.body)
+            object_id = data.get('object_id')
+            top = data.get('top')
+            left = data.get('left')
+            width = data.get('width')
+            height = data.get('height')
+
+            # Check for missing or None values in coordinates
+            if None in [top, left, width, height]:
+                return JsonResponse({'error': 'Missing data'}, status=400)
+
             if object_id:
+                # Update existing coordinates
                 coordinates = Coordinates.objects.get(id=object_id)
                 coordinates.top = top
                 coordinates.left = left
@@ -125,12 +125,17 @@ def save_coordinates(request):
                 coordinates.height = height
                 coordinates.save()
             else:
+                # Create new coordinates
                 coordinates = Coordinates.objects.create(top=top, left=left, width=width, height=height)
 
-            # Возвращаем id объекта в ответе
+            # Return object_id in the response
             return JsonResponse({'success': 'Coordinates saved or updated', 'object_id': coordinates.id})
 
         except Coordinates.DoesNotExist:
             return JsonResponse({'error': 'Object not found'}, status=404)
         except IntegrityError as e:
             return JsonResponse({'error': str(e)}, status=400)
+
+    else:
+        # Handle non-POST requests
+        return JsonResponse({'error': 'Invalid request method'}, status=405)
